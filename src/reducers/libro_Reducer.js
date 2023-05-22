@@ -5,12 +5,18 @@ const initialState = {
     activelibro: null,
     modalCrear: false,
     modalEditar: false,
+    modalActualizarArchivo: false,
 }
 
 export const libro_Reducer = (state = initialState, action) => {
 
     switch (action.type) {
         case types.libroGetLosMios:
+            return {
+                ...state,
+                libros: [...action.payloand]
+            }
+        case types.libroGetTodos:
             return {
                 ...state,
                 libros: [...action.payloand]
@@ -60,6 +66,16 @@ export const libro_Reducer = (state = initialState, action) => {
                 libros: state.libros.filter(
                     e => (e._id !== action.payloand)
                 )
+            }
+        case types.libroModalActualizarArchivoOpen:
+            return {
+                ...state,
+                modalActualizarArchivo: true
+            }
+        case types.libroModalActualizarArchivoCloced:
+            return {
+                ...state,
+                modalActualizarArchivo: false
             }
         default:
             return state;

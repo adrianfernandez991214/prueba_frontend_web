@@ -15,6 +15,11 @@ export const autor_Reducer = (state = initialState, action) => {
                 ...state,
                 autores: [...action.payloand]
             }
+        case types.autorGetTodos:
+            return {
+                ...state,
+                autores: [...action.payloand]
+            }
         case types.autorSelect:
             return {
                 ...state,

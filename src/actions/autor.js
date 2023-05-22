@@ -1,4 +1,4 @@
-import { fetchConToken } from "../helpers/fetch"
+import { fetchConToken, fetchSinToken } from "../helpers/fetch"
 import { types } from "../types/types";
 import Swal from "sweetalert2";
 
@@ -133,4 +133,22 @@ export const Autor_Delete = (id) => {
 const delete_eliminar_autor = (id) => ({
     type: types.autorDelete,
     payloand: id
+});
+
+export const autores_get_todos = () => {
+    return async (dispatch) => {
+        const resp = await fetchSinToken('autor?limite=0&desde=0');
+        const body = await resp.json();
+        if (body.ok) {
+            dispatch(get_todos(body.autores))
+        } else {
+            Swal.fire("Error", body.msg, 'error');
+        }
+
+    }
+}
+
+const get_todos = (autores) => ({
+    type: types.autorGetTodos,
+    payloand: autores
 });

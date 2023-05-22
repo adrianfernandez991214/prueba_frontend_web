@@ -1,7 +1,5 @@
 export const types = {
 
-    prueba: '[prueba] Hola manco',
-
     //authChecking: '[auth] Checking login state',
     authCheckingFinish: '[auth] Finish checking login state',
     //authStartLogin: '[auth] Start login',
@@ -31,6 +29,8 @@ export const types = {
     libroModalCrearOpen: '[libro] Open modal de crear libro',
     libroModalCrearCloced: '[libro] Cloced modal de crear libro',
     libroModalEditarOpen: '[libro] Open modal de editar libro',
-    libroModalEditarCloced: '[libro] Cloced modal de editar libro'
+    libroModalEditarCloced: '[libro] Cloced modal de editar libro',
+    libroModalActualizarArchivoOpen: '[libro] Open modal de actualizar archivo de libro',
+    libroModalActualizarArchivoCloced: '[libro] Cloced modal de actualizar archivo de libro'
     
 }

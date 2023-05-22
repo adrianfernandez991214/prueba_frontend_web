@@ -21,8 +21,8 @@ export default function SignInSide() {
   const Dispatch = useDispatch();
 
   const [formLogin, hanledInputLogin] = useForm({
-    correo: 'adrian@gmail.com',
-    password: '123456'
+    correo: '',
+    password: ''
   });
 
   const { correo, password } = formLogin;

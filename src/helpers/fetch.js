@@ -19,7 +19,7 @@ const fetchSinToken = (endpoint, data, method = 'GET') => {
 }
 
 const fetchConToken = (endpoint, data, method = 'GET') => {
-
+    
     const url = `${baseURl}/${endpoint}`;
     const token = localStorage.getItem('token') || '';
 
@@ -43,7 +43,40 @@ const fetchConToken = (endpoint, data, method = 'GET') => {
 
 }
 
+const fetchConTokenArchivo = (endpoint, data, method = 'GET') => {
+
+    const url = `${baseURl}/${endpoint}`;
+    const token = localStorage.getItem('token') || '';
+
+    if (method === 'GET') {
+        return fetch(url, {
+            method,
+            headers: {
+                'x-token': token
+            }
+        });
+    } else {
+
+        const formData = new FormData();
+        formData.append('archivo', data.archivo);
+        formData.append('titulo', data.titulo);
+        formData.append('genero', data.genero);
+        formData.append('anno', data.anno);
+        formData.append('autor', data.autor);
+
+        return fetch(url, {
+            method,
+            headers: {
+                'x-token': token
+            },
+            body: formData
+        });
+    }
+
+}
+
 export {
     fetchSinToken,
-    fetchConToken
+    fetchConToken,
+    fetchConTokenArchivo
 }

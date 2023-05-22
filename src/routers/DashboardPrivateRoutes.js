@@ -20,7 +20,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { MainListItems, SecondaryListItems } from '../components/menu/listItems';
+import { MainListItems } from '../components/menu/listItems';
 import { useDispatch } from 'react-redux';
 import { startLogout } from '../actions/auth';
 import { useSelector } from 'react-redux';
@@ -81,7 +81,7 @@ const mdTheme = createTheme();
 export const DashboardPrivateRoutes = () => {
 
     const dispatch = useDispatch();
-    const { nombre, rol, paginaActual } = useSelector(state => state.auth);
+    const { nombre, paginaActual } = useSelector(state => state.auth);
     const [open, setOpen] = React.useState(true);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -172,12 +172,6 @@ export const DashboardPrivateRoutes = () => {
                     </Toolbar>
                     <Divider />
                     <MainListItems openlist={open} setOpen={setOpen} />
-                    {
-                        rol == 'ADMIN_ROLE' && <Divider sx={{ my: 1 }} />
-                    }
-                    {
-                        rol == 'ADMIN_ROLE' ? <SecondaryListItems /> : ''
-                    }
 
                 </Drawer>
 
@@ -195,12 +189,6 @@ export const DashboardPrivateRoutes = () => {
                     </Toolbar>
                     <Divider />
                     <MainListItems openlist={open} setOpen={setOpen} />
-                    {
-                        rol == 'ADMIN_ROLE' && <Divider sx={{ my: 1 }} />
-                    }
-                    {
-                        rol == 'ADMIN_ROLE' ? <SecondaryListItems /> : ''
-                    }
 
                 </MuiDrawer>
 
@@ -230,7 +218,7 @@ export const DashboardPrivateRoutes = () => {
 
                                     <Routes>
 
-                                        <Route exact path='/home' element={<Home />} />
+                                        <Route exact path='/bibliotecadigital' element={<Home />} />
                                         <Route exact path='/mis_libros' element={<GestionarMisLibros />} />
                                         <Route exact path='/mis_autores' element={<GestionarMisAutores />} />
 

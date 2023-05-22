@@ -5,18 +5,22 @@ import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-g
 import { useDispatch, useSelector } from 'react-redux';
 import { paginaActual } from '../../actions/auth';
 import { Libos_get_los_mios } from '../../actions/libro';
+import { BotonActualizarArchivo, BotonEditarLibro, BotonEliminarLibro, BottomComplementosLibros } from './BotonesLibros';
+import { ModalCrearLibro } from './ModalCrearLibro';
+import { ModalEditarLibro } from './ModalEditarLibro';
+import { ModalActualizarArchivo } from './ModalActualizarArchivo';
 
 const columns = [
     { field: 'id', headerName: '#', flex: 0.05 },
     {
         field: 'titulo',
         headerName: 'Titulo',
-        flex: 0.15,
+        flex: 0.2,
     },
     {
         field: 'genero',
         headerName: 'Genero',
-        flex: 0.1,
+        flex: 0.15,
         //editable: true, -> esto hace que la tabla se pueda editar
     },
     {
@@ -28,21 +32,28 @@ const columns = [
         field: 'autor',
         headerName: 'Autor',
         flex: 0.2,
-    },/*
+    },
+    {
+        field: 'actualizar',
+        headerName: 'Actualizar Archivo',
+        type: 'actions',
+        flex: 0.1,
+        renderCell: params => <BotonActualizarArchivo {...params} />
+    },
     {
         field: 'editar',
         headerName: 'Editar',
         type: 'actions',
         flex: 0.1,
-        renderCell: params => <BotonEditarAutor {...params} />
+        renderCell: params => <BotonEditarLibro {...params} />
     },
     {
         field: 'eliminar',
         headerName: 'Eliminar',
         type: 'actions',
         flex: 0.1,
-        renderCell: params => <BotonEliminarAutor {...params} />
-    }*/
+        renderCell: params => <BotonEliminarLibro {...params} />
+    }
 ];
 
 function CustomToolbar() {
@@ -87,7 +98,7 @@ const GestionarMisLibros = () => {
                 >
 
                     <Box sx={{ width: '100%' }}>
-
+                        <BottomComplementosLibros />
                         <DataGrid sx={{
                             display: "flex",
                             "& .MuiDataGrid-cellContent":
@@ -100,14 +111,16 @@ const GestionarMisLibros = () => {
                             columns={columns}
                             autoHeight={true}
                             pageSize={10}
-                            rowsPerPageOptions={[10]}
+                            rowsPerPageOptions={[25, 50, 100]}
                             experimentalFeatures={{ newEditingApi: true }}
                             components={{
                                 Toolbar: CustomToolbar,
                             }}
                         />
                     </Box>
-
+                    <ModalCrearLibro />
+                    <ModalActualizarArchivo />
+                    <ModalEditarLibro />
                 </Box>
             </Container>
         </div>
