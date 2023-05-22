@@ -23,12 +23,12 @@ export const ModalCrearAutor = () => {
 
     const Dispatch = useDispatch();
     const { modalCrear } = useSelector(state => state.autor);
-    
+
     const closeModal = () => {
         Dispatch(cloced_modal_crear_autor());
     }
 
-    const [formAutor, hanledInputAutor] = useForm({
+    const [formAutor, hanledInputAutor, setvalues] = useForm({
         nombre: '',
         apellidos: '',
         correo: '',
@@ -40,6 +40,12 @@ export const ModalCrearAutor = () => {
     const FormSubmit = (e) => {
         e.preventDefault();
         Dispatch(Autor_post(formAutor));
+        setvalues({
+            nombre: '',
+            apellidos: '',
+            correo: '',
+            orcid: ''
+        });
     }
 
     return (<>
