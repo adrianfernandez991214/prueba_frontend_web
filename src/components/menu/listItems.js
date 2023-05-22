@@ -4,7 +4,7 @@ import { Home, Attribution, MenuBook } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 
 
-
+//Lista de item que utiliza el menu lateral para los link
 export const MainListItems = ({ openlist, setOpen }) => {
 
   return (

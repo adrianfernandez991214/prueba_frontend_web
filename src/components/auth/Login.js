@@ -13,9 +13,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
 import { startLogin } from '../../actions/auth';
+import { NavLink } from 'react-router-dom';
 
 const theme = createTheme();
 
+//componente iniciar sección
 export default function SignInSide() {
 
   const Dispatch = useDispatch();
@@ -72,7 +74,7 @@ export default function SignInSide() {
                 required
                 fullWidth
                 id="correo"
-                label="Email Address"
+                label="Correo"
                 name="correo"
                 value={correo}
                 onChange={hanledInputLogin}
@@ -99,6 +101,13 @@ export default function SignInSide() {
               >
                 Iniciar sección
               </Button>
+              <Grid container>
+                <Grid item xs>
+                  <NavLink to='registro'>
+                    {"¿No tienes una cuenta? Registrese"}
+                  </NavLink>
+                </Grid>
+              </Grid>
             </Box>
           </Box>
         </Grid>

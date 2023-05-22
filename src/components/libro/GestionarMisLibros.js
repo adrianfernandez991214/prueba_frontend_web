@@ -10,6 +10,7 @@ import { ModalCrearLibro } from './ModalCrearLibro';
 import { ModalEditarLibro } from './ModalEditarLibro';
 import { ModalActualizarArchivo } from './ModalActualizarArchivo';
 
+//Se crea la estructura de las columnas que va a tener la trabla
 const columns = [
     { field: 'id', headerName: '#', flex: 0.05 },
     {
@@ -73,15 +74,17 @@ const GestionarMisLibros = () => {
         Dispatch(Libos_get_los_mios());
     }, [Dispatch]);
 
+    //utlizando useSelector se piden de los reducer los autores
     const { libros } = useSelector(state => state.libro);
     let cont = 1;
-
+    
+    //Se estructuran los libros para ser utilizados en la tabla 
     const rows = libros.map(e => ({
         id: cont++,
         titulo: e.titulo,
         genero: e.genero,
         anno: e.anno,
-        autor: e.autor.nombre + " " + e.autor.apellidos,
+        autor: e.autor ? (e.autor.nombre + " " + e.autor.apellidos) : 'Autor desconocido',
         key: e._id
     }));
 

@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import * as React from 'react';
 
+//Componente donde se encuentras las rutas publicas
 export const DashboardPublicRoutes = () => {
 
     return <>

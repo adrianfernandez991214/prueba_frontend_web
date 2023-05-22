@@ -1,5 +1,8 @@
 import { types } from "../types/types";
 
+//Estado incial de del reducer que va a contar, con una lista de libros que
+//va a ir cambiando segun las necesidades de la aplicación, el libro activo(seleccionado)
+//y el estado de los modal crear libro y editar libro 
 const initialState = {
     libros: [],
     activelibro: null,
@@ -8,6 +11,7 @@ const initialState = {
     modalActualizarArchivo: false,
 }
 
+//reducer encargado de las acciones refentes a los autores
 export const libro_Reducer = (state = initialState, action) => {
 
     switch (action.type) {

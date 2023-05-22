@@ -1,3 +1,4 @@
+//Json donde se guardan los tipos de acciones, para usar en los reducer
 export const types = {
 
     //authChecking: '[auth] Checking login state',

@@ -10,11 +10,13 @@ import { Backdrop, CircularProgress } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { startChecking } from '../actions/auth';
 
+//Componete donde se encuentran todas la rutas
 export const AppRouter = () => {
 
     const dispatch = useDispatch();
     const { checking } = useSelector(state => state.auth);
     
+    //Se chequea si el toke es valido
     useEffect(() => {
         dispatch(startChecking());
     }, [dispatch]);
@@ -29,7 +31,8 @@ export const AppRouter = () => {
             </Backdrop>
         )
     }
-
+    
+    //Se declaran rutas publicas y privadas, dependiendo si el usuario esta logueado o no
     return <BrowserRouter>
 
         <Routes>

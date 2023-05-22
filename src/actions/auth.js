@@ -2,6 +2,7 @@ import { fetchConToken, fetchSinToken } from "../helpers/fetch"
 import { types } from "../types/types";
 import Swal from "sweetalert2";
 
+//acción de iniciar sección 
 export const startLogin = (correo, password) => {
 
     return async (dispatch) => {
@@ -25,27 +26,26 @@ export const startLogin = (correo, password) => {
     }
 }
 
-/*export const startRegister = (name, email, password) => {
+//acción de registrar nuevo usuario
+export const startRegister = (datos) => {
     return async (dispatch) => {
-        const resp = await fetchSinToken('auth/new', { name, email, password }, 'POST');
+        const resp = await fetchSinToken('usuarios/', { ...datos }, 'POST');
         const body = await resp.json();
-
+        
         if (body.ok) {
-            const { _id, name } = body.usuario;
-            localStorage.setItem('token', body.token);
-            localStorage.setItem('token-init-date', new Date().getTime());
-
-            dispatch(login({
-                uid: _id,
-                name
-            }))
+            Swal.fire({
+                icon: 'success',
+                title: 'Se ha creado correctamente la cuenta',
+                showConfirmButton: false,
+                timer: 2500
+            });
         } else {
             Swal.fire("Error", body.msg, 'error');
         }
     }
 }
-*/
 
+//acción de refresh token
 export const startChecking = () => {
     return async (dispatch) => {
         const resp = await fetchConToken('login/renew');
@@ -67,6 +67,7 @@ export const startChecking = () => {
     }
 }
 
+/*
 export const Usuario_Post = (usuario, navigate) => {
     return async (dispatch) => {
         const resp = await fetchConToken('usuario', { ...usuario }, 'POST');
@@ -91,7 +92,9 @@ export const Usuario_Post = (usuario, navigate) => {
         }
     }
 }
+*/
 
+//acción de pedir todos lo usuarios, solo para administradores
 export const Usuarios_get_todos = () => {
     return async (dispatch) => {
         const resp = await fetchConToken('usuario?limite=0&desde=0');
@@ -105,6 +108,7 @@ export const Usuarios_get_todos = () => {
     }
 }
 
+//acción de salir de sección
 export const startLogout = () => {
 
     return (dispatch) => {
@@ -115,7 +119,7 @@ export const startLogout = () => {
     }
 }
 
-
+//acción de eliminar usuario
 export const User_Delete = (id) => {
 
     return async (dispatch) => {
@@ -145,6 +149,7 @@ export const User_Delete = (id) => {
 
 }
 
+//acción de modificar usuario
 export const Usuario_PUT = (datos) => {
 
     return async (dispatch) => {

@@ -11,7 +11,6 @@ import { useDispatch } from 'react-redux';
 import { Button, TextField, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
-//import Swal from 'sweetalert2';
 import SaveIcon from '@mui/icons-material/Save';
 import { Autor_post, cloced_modal_crear_autor } from '../../actions/autor';
 
@@ -19,11 +18,12 @@ const theme = createTheme();
 
 Modal.setAppElement('#root');
 
+//Moda que va a permitir insertar un nuevo autor
 export const ModalCrearAutor = () => {
 
     const Dispatch = useDispatch();
     const { modalCrear } = useSelector(state => state.autor);
-
+    
     const closeModal = () => {
         Dispatch(cloced_modal_crear_autor());
     }

@@ -78,6 +78,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
+//Componente donde se encuentras las rutas privadas
 export const DashboardPrivateRoutes = () => {
 
     const dispatch = useDispatch();
@@ -215,7 +216,7 @@ export const DashboardPrivateRoutes = () => {
                                         flexDirection: 'column',
                                     }}
                                 >
-
+                                
                                     <Routes>
 
                                         <Route exact path='/bibliotecadigital' element={<Home />} />

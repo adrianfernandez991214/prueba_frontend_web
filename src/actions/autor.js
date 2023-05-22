@@ -2,6 +2,7 @@ import { fetchConToken, fetchSinToken } from "../helpers/fetch"
 import { types } from "../types/types";
 import Swal from "sweetalert2";
 
+//acción de isertar nuevo autor
 export const Autor_post = (datos) => {
 
     return async (dispatch) => {
@@ -28,6 +29,7 @@ const post_crear_autor = (datos) => ({
     payloand: datos
 });
 
+//acción de perdir todos los autores que esten relacionados con la cuenta
 export const Autores_get_los_mios = () => {
     return async (dispatch) => {
         const resp = await fetchConToken('autor/los_mios');
@@ -47,6 +49,7 @@ const get_los_mios = (autores) => ({
     payloand: autores
 });
 
+//acción de modificar un autor relacionado con el usuario
 export const Autores_Put = (datos) => {
 
     return async (dispatch) => {
@@ -101,6 +104,7 @@ export const cloced_modal_editar_autor = () => ({
     type: types.autorModalEditarCloced
 });
 
+//acción de elimiar un autor relacionado con la cuenta
 export const Autor_Delete = (id) => {
 
     return async (dispatch) => {
@@ -135,6 +139,8 @@ const delete_eliminar_autor = (id) => ({
     payloand: id
 });
 
+
+//acción de pedir todos los autores
 export const autores_get_todos = () => {
     return async (dispatch) => {
         const resp = await fetchSinToken('autor?limite=0&desde=0');

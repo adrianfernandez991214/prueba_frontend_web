@@ -11,7 +11,6 @@ import { useDispatch } from 'react-redux';
 import { Button, TextField, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
-//import Swal from 'sweetalert2';
 import SaveIcon from '@mui/icons-material/Save';
 import { Autores_Put, cloced_modal_editar_autor } from '../../actions/autor';
 
@@ -19,9 +18,11 @@ const theme = createTheme();
 
 Modal.setAppElement('#root');
 
+//Modal que permite editar un autor relaciondo con el usuario
 export const ModalEditarAutor = () => {
 
     const Dispatch = useDispatch();
+    //Se pide el autor seleccionado al reducer autor
     const { modalEditar, activeAutor } = useSelector(state => state.autor);
 
     const closeModal = () => {
@@ -35,6 +36,7 @@ export const ModalEditarAutor = () => {
         orcid: ''
     });
 
+    //Si el activeAutor existe, se cargan los datos en el formulario
     useEffect(() => {
         if (activeAutor)
             setvalues({

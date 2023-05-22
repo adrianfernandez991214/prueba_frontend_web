@@ -20,6 +20,7 @@ const theme = createTheme();
 
 Modal.setAppElement('#root');
 
+//Todos los generos definidos que puede ser un libro
 const generos_literarios = [
     'Novela',
     'Cuento',
@@ -43,10 +44,13 @@ const generos_literarios = [
     'Terror'
 ];
 
+//Modal que permite editar un libro relaciondo con el usuario
 export const ModalEditarLibro = () => {
 
     const Dispatch = useDispatch();
+    //Se pide el libro seleccionado al reducer libro
     const { modalEditar, activelibro } = useSelector(state => state.libro);
+    //Se piden todos los autores al reducer autor
     const { autores } = useSelector(state => state.autor);
 
     useEffect(() => {
@@ -64,6 +68,7 @@ export const ModalEditarLibro = () => {
         autor: ''
     });
 
+    //Si el activelibro existe, se cargan los datos en el formulario
     useEffect(() => {
         if (activelibro)
             setvalues({
@@ -71,7 +76,7 @@ export const ModalEditarLibro = () => {
                 titulo: activelibro.titulo,
                 genero: activelibro.genero,
                 anno: activelibro.anno,
-                autor: activelibro.autor._id
+                autor: activelibro.autor ? activelibro.autor._id : ''
             });
     }, [activelibro, setvalues])
 
@@ -79,6 +84,8 @@ export const ModalEditarLibro = () => {
 
     const FormSubmit = (e) => {
         e.preventDefault();
+
+        //Se comprueba que el año esta ente 1800 y el año actual
         if (anno < 1800 || anno > new Date().getFullYear()) {
             Swal.fire("Error", `Solo se aceptarán el año del libro entre 1800 y ${new Date().getFullYear()}`, 'error');
         } else {

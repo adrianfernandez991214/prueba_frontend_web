@@ -20,6 +20,7 @@ const theme = createTheme();
 
 Modal.setAppElement('#root');
 
+//Todos los generos definidos que puede ser un libro
 const generos_literarios = [
     'Novela',
     'Cuento',
@@ -43,10 +44,13 @@ const generos_literarios = [
     'Terror'
 ];
 
+//Modal que va a permitir insertar un nuevo libro
+//Los archivos de los libros solo pueden ser de formato pdf, doc o docx
 export const ModalCrearLibro = () => {
 
     const Dispatch = useDispatch();
     const { modalCrear } = useSelector(state => state.libro);
+    //Se piden todos los autores al reducer autor
     const { autores } = useSelector(state => state.autor);
 
     useEffect(() => {
@@ -81,7 +85,8 @@ export const ModalCrearLibro = () => {
             autor,
             archivo
         }
-
+        
+        //Se comprueba que el año esta ente 1800 y el año actual
         if (anno < 1800 || anno > new Date().getFullYear()) {
             Swal.fire("Error", `Solo se aceptarán el año del libro entre 1800 y ${new Date().getFullYear()}`, 'error');
         } else {

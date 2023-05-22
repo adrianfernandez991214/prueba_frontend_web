@@ -5,11 +5,13 @@ import Swal from 'sweetalert2';
 import { SpeedDial, SpeedDialAction, Button } from '@mui/material';
 import { Autor_Delete, open_modal_crear_autor, open_modal_editar_autor, seleccionar_autor } from '../../actions/autor';
 
+//boton utilizado en la la vista gestionar mis autores para abrir el modal de editar autor
 export const BotonEditarAutor = ({ row }) => {
 
     const Dispatch = useDispatch()
 
     const hanledClick = () => {
+        //Se selecciona el autor en los reducer, en el reducer de autor, en la variable activeAutor
         Dispatch(seleccionar_autor(row.key));
         Dispatch(open_modal_editar_autor());
     }
@@ -25,6 +27,7 @@ export const BotonEditarAutor = ({ row }) => {
     )
 }
 
+//boton utilizado en la la vista gestionar mis autores para dar la opción de eliminar un autor 
 export const BotonEliminarAutor = ({ row }) => {
 
     const Dispatch = useDispatch()
@@ -56,7 +59,8 @@ export const BotonEliminarAutor = ({ row }) => {
     )
 }
 
-
+//boton utilizado en la la vista gestionar mis autores, para dar opciones extras 
+//en este caso se utiliza para dar la opción de insertar un nuevo autor 
 export const BottomComplementos = () => {
 
     const Dispatch = useDispatch()

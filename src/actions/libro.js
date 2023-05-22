@@ -3,6 +3,7 @@ import { types } from "../types/types";
 import Swal from "sweetalert2";
 const baseURl = process.env.React_APP_API_URL;
 
+//acción de perdir todos los libros relacionados con el usuario
 export const Libos_get_los_mios = () => {
     return async (dispatch) => {
         const resp = await fetchConToken('libro/los_mios');
@@ -17,6 +18,7 @@ export const Libos_get_los_mios = () => {
     }
 }
 
+//acción de perdir todos los libros
 export const Libos_get_todos = () => {
     return async (dispatch) => {
         const resp = await fetchSinToken('libro');
@@ -42,7 +44,7 @@ const get_los_mios = (libros) => ({
     payloand: libros
 });
 
-
+//acción de crear un nuevo libro
 export const Libro_post = (datos) => {
 
     return async (dispatch) => {
@@ -77,7 +79,7 @@ export const cloced_modal_crear_libro = () => ({
     type: types.libroModalCrearCloced
 });
 
-
+//acción de eliminar un libro relacionado con el usuario
 export const Libro_Delete = (id) => {
 
     return async (dispatch) => {
@@ -110,6 +112,7 @@ const delete_eliminar_libro = (id) => ({
     payloand: id
 });
 
+//acción de modificar un libro relacionado con el usuario 
 export const Libro_Put = (datos) => {
 
     return async (dispatch) => {
@@ -163,6 +166,7 @@ export const cloced_modal_actualizar_archivo_libro = () => ({
     type: types.libroModalActualizarArchivoCloced
 });
 
+//acción de actulizar el archivo de un libro relacionado con la usuario
 export const Libro_Actualizar_Archivo = (datos) => {
 
     return async (dispatch) => {
@@ -202,6 +206,7 @@ export const Libro_Actualizar_Archivo = (datos) => {
     }
 }
 
+//acción de descargar el archivo de un libro
 export const Descargar_archivo_libro = (datos) => {
     return async (dispatch) => {
         //const resp = await fetchSinToken(`archivo/${datos._id}`);

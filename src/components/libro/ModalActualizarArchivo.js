@@ -17,6 +17,8 @@ const theme = createTheme();
 
 Modal.setAppElement('#root');
 
+//Modal que va a permitir actualizar el archivo de un libro determinado
+//Los archivos de los libros solo pueden ser de formato pdf, doc o docx
 export const ModalActualizarArchivo = () => {
 
     const Dispatch = useDispatch();

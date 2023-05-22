@@ -1,5 +1,8 @@
 import { types } from "../types/types";
 
+//El estado inicial que va a contar con una variable checking para saber cuando se esta
+//chequeando las credenciales de los usuario, el id del usuario, nombre y rol, y la pagina
+//pagina actual donde de encuetra el usuario
 const initialState = {
     checking: true,
     uid: null,
@@ -8,6 +11,7 @@ const initialState = {
     paginaActual: ''
 }
 
+//reducer encargado de las acciones refentes a la seguridad
 export const authReducer = (state = initialState, action) => {
 
     switch (action.type) {

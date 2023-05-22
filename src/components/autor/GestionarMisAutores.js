@@ -9,6 +9,7 @@ import { BotonEditarAutor, BotonEliminarAutor, BottomComplementos } from './Boto
 import { ModalCrearAutor } from './ModalCrearAutor';
 import { ModalEditarAutor } from './ModalEditarAutor';
 
+//Se crea la estructura de las columnas que va a tener la trabla
 const columns = [
     { field: 'id', headerName: '#', flex: 0.05 },
     {
@@ -64,10 +65,12 @@ const GestionarMisAutores = () => {
         Dispatch(paginaActual("Gestionar mis autores"))
         Dispatch(Autores_get_los_mios());
     }, [Dispatch]);
-
+    
+    //utlizando useSelector se piden de los reducer los autores
     const { autores } = useSelector(state => state.autor);
     let cont = 1;
 
+    //Se estructuran los autores para ser utilizados en la tabla 
     const rows = autores.map(e => ({
         id: cont++,
         nombre: e.nombre,

@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+//hooks utilizado para facilitar el trabajo con los 
+//formularios
 export const useForm = (initialState = {}) => {
 
     const [values, setvalues] = useState(initialState);

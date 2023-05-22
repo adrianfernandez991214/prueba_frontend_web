@@ -1,5 +1,8 @@
 import { types } from "../types/types";
 
+//Estado incial de del reducer que va a contar, con una lista de autores que
+//va a ir cambiando segun las necesidades de la aplicación, el autor activo(seleccionado)
+//y el estado de los modal crear autor y editar autor 
 const initialState = {
     autores: [],
     activeAutor: null,
@@ -7,6 +10,7 @@ const initialState = {
     modalEditar: false,
 }
 
+//reducer encargado de las acciones refentes a los autores
 export const autor_Reducer = (state = initialState, action) => {
 
     switch (action.type) {

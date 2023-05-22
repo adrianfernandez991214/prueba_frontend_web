@@ -3,6 +3,7 @@ import { ChevronLeft } from '@mui/icons-material'
 import React from 'react'
 import { MainListItems, SecondaryListItems } from './listItems'
 
+//Componente utilizado en el menu lateral
 const DrawerItem = ({ open, toggleDrawer }) => {
     return (
         <>

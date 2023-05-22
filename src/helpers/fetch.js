@@ -1,5 +1,6 @@
 const baseURl = process.env.React_APP_API_URL;
 
+//Petición fetch sin utilizando JWT
 const fetchSinToken = (endpoint, data, method = 'GET') => {
 
     const url = `${baseURl}/${endpoint}`;
@@ -18,6 +19,7 @@ const fetchSinToken = (endpoint, data, method = 'GET') => {
 
 }
 
+//Petición fetch utilizando JWT
 const fetchConToken = (endpoint, data, method = 'GET') => {
     
     const url = `${baseURl}/${endpoint}`;
@@ -43,6 +45,8 @@ const fetchConToken = (endpoint, data, method = 'GET') => {
 
 }
 
+//Petición fetch utilizando JWT, utilizando FormData dato que el archivo
+//de un libro no puede ser enviado en un application/json
 const fetchConTokenArchivo = (endpoint, data, method = 'GET') => {
 
     const url = `${baseURl}/${endpoint}`;
